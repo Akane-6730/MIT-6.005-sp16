@@ -3,23 +3,25 @@
  */
 package poet;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for GraphPoet.
  */
 public class GraphPoetTest {
-    
+
     // Testing strategy
     //   TODO
-    
-    @Test(expected=AssertionError.class)
-    public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+
+    @Test
+    void testAssertionsEnabled() {
+        assertThrows(AssertionError.class, () -> {
+            assert false;  // make sure assertions are enabled with VM argument: -ea
+        });
     }
-    
+
     // TODO tests
-    
+
 }

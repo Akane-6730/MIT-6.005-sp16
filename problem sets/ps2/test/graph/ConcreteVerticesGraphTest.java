@@ -3,43 +3,44 @@
  */
 package graph;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for ConcreteVerticesGraph.
- * 
+ * <p>
  * This class runs the GraphInstanceTest tests against ConcreteVerticesGraph, as
  * well as tests for that particular implementation.
- * 
+ * <p>
  * Tests against the Graph spec should be in GraphInstanceTest.
  */
 public class ConcreteVerticesGraphTest extends GraphInstanceTest {
-    
+
     /*
      * Provide a ConcreteVerticesGraph for tests in GraphInstanceTest.
      */
-    @Override public Graph<String> emptyInstance() {
+    @Override
+    public Graph<String> emptyInstance() {
         return new ConcreteVerticesGraph();
     }
-    
+
     /*
      * Testing ConcreteVerticesGraph...
      */
-    
+
     // Testing strategy for ConcreteVerticesGraph.toString()
     //   TODO
-    
+
     // TODO tests for ConcreteVerticesGraph.toString()
-    
+
     /*
      * Testing Vertex...
      */
-    
+
     // Testing strategy for Vertex
     //   TODO
-    
+
     // TODO tests for operations of Vertex
-    
+
 }
