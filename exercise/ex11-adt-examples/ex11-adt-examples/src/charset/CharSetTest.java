@@ -20,71 +20,71 @@ public class CharSetTest {
     //   partition on size after: 0, 1, n
     //   partition on e present or not
     //
-    
+
     private static Set<Character> empty() {
         return new CharSet3();
     }
-    
+
     @Test
-    public void testEmpty() {
+    void testEmpty() {
         Set<Character> cs = empty();
         assertEquals(0, cs.size());
-        assertEquals(false, cs.contains('z'));
+        assertFalse(cs.contains('z'));
     }
 
     @Test
-    public void testAddSingleton() {
+    void testAddSingleton() {
         Set<Character> cs = empty();
         cs.add('b'); // cs is now {b}
         assertEquals(1, cs.size());
-        assertEquals(true, cs.contains('b'));
-        assertEquals(false, cs.contains('z'));
+        assertTrue(cs.contains('b'));
+        assertFalse(cs.contains('z'));
     }
 
     @Test
-    public void testAddRedundant() {
+    void testAddRedundant() {
         Set<Character> cs = empty();
         cs.add('b'); // cs is now {b}
         cs.add('b'); // cs is still {b}
         assertEquals(1, cs.size());
-        assertEquals(true, cs.contains('b'));
-        assertEquals(false, cs.contains('z'));
+        assertTrue(cs.contains('b'));
+        assertFalse(cs.contains('z'));
     }
 
     @Test
-    public void testAddPair() {
+    void testAddPair() {
         Set<Character> cs = empty();
         cs.add('b'); // cs is now {b}
         cs.add('c'); // cs is now {b, c}
         assertEquals(2, cs.size());
-        assertEquals(true, cs.contains('b'));
-        assertEquals(true, cs.contains('c'));
-        assertEquals(false, cs.contains('y'));
+        assertTrue(cs.contains('b'));
+        assertTrue(cs.contains('c'));
+        assertFalse(cs.contains('y'));
     }
 
     @Test
-    public void testAddTriple() {
+    void testAddTriple() {
         Set<Character> cs = empty();
         cs.add('b'); // cs is now {b}
         cs.add('c'); // cs is now {b, c}
         cs.add('d'); // cs is now {b, c, d}
         assertEquals(3, cs.size());
-        assertEquals(true, cs.contains('b'));
-        assertEquals(true, cs.contains('c'));
-        assertEquals(true, cs.contains('d'));
-        assertEquals(false, cs.contains('x'));
+        assertTrue(cs.contains('b'));
+        assertTrue(cs.contains('c'));
+        assertTrue(cs.contains('d'));
+        assertFalse(cs.contains('x'));
     }
-    
+
     @Test
-    public void testSingletonRemove() {
+    void testSingletonRemove() {
         Set<Character> cs = empty();
         cs.add('b'); // cs is now {b}
         cs.remove('b'); // cs is now {}
         assertEquals(0, cs.size());
-        assertEquals(false, cs.contains('b'));
-        assertEquals(false, cs.contains('z'));
+        assertFalse(cs.contains('b'));
+        assertFalse(cs.contains('z'));
     }
-    
+
     // TODO additional tests to cover all partitions of add() and remove()
-    
+
 }
