@@ -85,6 +85,44 @@ public class CharSetTest {
         assertFalse(cs.contains('z'));
     }
 
-    // TODO additional tests to cover all partitions of add() and remove()
+    @Test
+    void testRemoveFromEmptySet() {
+        Set<Character> cs = empty();
+        cs.remove('a');
+        assertEquals(0, cs.size());
+        assertFalse(cs.contains('a'));
+    }
 
+    @Test
+    void testRemoveNonExistentFromMultiElementSet() {
+        Set<Character> cs = empty();
+        cs.add('b'); // cs is now {b}
+        cs.add('c'); // cs is now {b, c}
+        int sizeBefore = cs.size();
+        cs.remove('d'); // cs is still {b, c}
+        assertEquals(sizeBefore, cs.size());
+        assertTrue(cs.contains('b'));
+        assertTrue(cs.contains('c'));
+    }
+
+    @Test
+    void testRemoveFromTriple() {
+        Set<Character> cs = empty();
+        cs.add('b'); cs.add('c'); cs.add('d');
+        cs.remove('c');
+        assertEquals(2, cs.size());
+        assertFalse(cs.contains('c'));
+        assertTrue(cs.contains('b'));
+        assertTrue(cs.contains('d'));
+    }
+
+    @Test
+    void testRemoveFromPair() {
+        Set<Character> cs = empty();
+        cs.add('b'); cs.add('d');
+        cs.remove('b');
+        assertEquals(1, cs.size());
+        assertFalse(cs.contains('b'));
+        assertTrue(cs.contains('d'));
+    }
 }
